@@ -1,0 +1,29 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 123, 255, 0.8); 
+    border-radius: 50%; 
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes anime{
+    0%{
+        color: blue;
+    }
+    25%{
+        color: red;
+    }
+    50%{
+        color: yellow;
+    }
+    75%{
+        color: blueviolet;
+    }
+    100%{
+        color: green;
+    }
+}
+
+#anim{
+    animation: anime 5s infinite;
+}

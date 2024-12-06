@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação em Java</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            scroll-behavior: smooth; /* Rolagem suave */
+        }
+        #anim {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Educação em Java</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Recursos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#bibliotecas">Bibliotecas</a></li>
+                            <li><a class="dropdown-item" href="#aplicacoes">Aplicações Práticas</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#sintaxe">Sintaxe de Java</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Indisponível</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div class="container mt-5" id="home">
+        <h1 id="anim">Bem-vindo ao site de Educação em Java!</h1>
+        <p>Aqui nós ensinaremos a você diversas informações sobre os conceitos básicos da linguagem Java, assim como seu uso em aplicações práticas, principais bibliotecas e exemplos de códigos para auxiliar seu aprendizado.</p>
+    </div>
+
+    <!-- Carrossel de Imagens -->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://as2.ftcdn.net/v2/jpg/04/43/70/91/1000_F_443709176_Vpk0mKIoQRoaRhnv6doxU2daxASjUeEn.jpg" class="d-block w-100" alt="Imagem 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Trabalhando com Tecnologia</h5>
+                    <p>Estude e pratique programação Java com um ambiente de trabalho real.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://t4.ftcdn.net/jpg/03/85/71/23/240_F_385712377_yH41aAJtg7mTVDNqfPjPM0srtizLCba0.jpg" class="d-block w-100" alt="Imagem 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Programação em Java</h5>
+                    <p>Fique no controle da sua aprendizagem enquanto programa em Java.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://as1.ftcdn.net/v2/jpg/03/06/93/82/1000_F_306938241_Y1mW8psKKzxBAyj5UzYORPuSNu8y13hP.jpg" class="d-block w-100" alt="Imagem 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Código em Ação</h5>
+                    <p>Aprenda Java através da prática de código real.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Seção de Bibliotecas -->
+    <div class="container mt-5" id="bibliotecas">
+        <h1>Principais Bibliotecas em Java</h1>
+        <p>Java é uma linguagem rica em bibliotecas que facilitam o desenvolvimento de diversas aplicações. Aqui estão algumas das bibliotecas mais populares:</p>
+        
+        <h3>1. <strong>JDBC (Java Database Connectivity)</strong></h3>
+        <p>A biblioteca JDBC permite que você conecte seu aplicativo Java a um banco de dados relacional. Com ela, você pode realizar operações como inserção, exclusão, atualização e consulta a dados.</p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>import java.sql.*;
+
+public class ConexaoBanco {
+    public static void main(String[] args) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/meubanco", "usuario", "senha");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios");
+            
+            while (rs.next()) {
+                System.out.println(rs.getString("nome"));
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code>
+        </pre>
+
+        <h3>2. <strong>JUnit</strong></h3>
+        <p>JUnit é uma biblioteca usada para escrever e executar testes automatizados em Java. Ela é muito importante no processo de desenvolvimento orientado a testes (TDD).</p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CalculadoraTest {
+    
+    @Test
+    public void testSoma() {
+        Calculadora calc = new Calculadora();
+        assertEquals(5, calc.somar(2, 3));
+    }
+}</code>
+        </pre>
+
+        <h3>3. <strong>Apache Commons</strong></h3>
+        <p>A Apache Commons oferece várias bibliotecas úteis para tarefas comuns de programação, como manipulação de coleções, entrada/saída de arquivos, manipulação de strings, entre outras.</p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>import org.apache.commons.lang3.StringUtils;
+
+public class ExemploApache {
+    public static void main(String[] args) {
+        String texto = "  Java é incrível!  ";
+        System.out.println(StringUtils.strip(texto));  // Remove os espaços extras
+    }
+}</code>
+        </pre>
+
+        <h3>4. <strong>Gson</strong></h3>
+        <p>Gson é uma biblioteca desenvolvida pelo Google para converter objetos Java em formato JSON e vice-versa, facilitando a manipulação de dados em APIs web.</p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>import com.google.gson.Gson;
+
+public class ExemploGson {
+    public static void main(String[] args) {
+        Pessoa pessoa = new Pessoa("João", 30);
+        Gson gson = new Gson();
+        String json = gson.toJson(pessoa);
+        System.out.println(json);
+    }
+}
+
+class Pessoa {
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+}</code>
+        </pre>
+
+        <h3>5. <strong>Log4j</strong></h3>
+        <p>Log4j é uma biblioteca para registro de logs em Java, útil para rastrear eventos, erros e atividades do sistema.</p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class ExemploLog {
+    private static final Logger logger = LogManager.getLogger(ExemploLog.class);
+
+    public static void main(String[] args) {
+        logger.info("Informação de log");
+        logger.error("Erro de log");
+    }
+}</code>
+        </pre>
+    </div>
+
+    <!-- Seção de Aplicações Práticas -->
+    <div class="container mt-5" id="aplicacoes">
+       <h2>Aplicações Práticas</h2>
+        <p>Abaixo temos exemplos de aplicações práticas que você pode criar usando Java:</p>
+
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://lh3.googleusercontent.com/7d7q0HzMc52Q93NmcVBOZwURgSmL-eJUu5JLZcdaaDApWQcoAHcin7jWQcFS9kRZQOjMQF4CL2HkXojNbHirW4QcbjHHSLbS_KRXJlqhtV2aSCf-5QGhAoEie9atgA_bANdSH1lGyeD9VBNqwUU" class="card-img-top" alt="Aplicação 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Aplicação 1</h5>
+                        <p class="card-text">Java é amplamente usado para construir aplicações web dinâmicas. O Java, junto com frameworks como Spring, Spring Boot, JSF (JavaServer Faces), e Servlets, permite a criação de aplicações escaláveis e seguras.</p>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnTUFUFho_JL7KoZgUtuo19-rXrUgCBJTFgA&s" class="card-img-top" alt="Aplicação 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Aplicação 2</h5>
+                        <p class="card-text">Java é a principal linguagem para o desenvolvimento de aplicações móveis Android, embora Kotlin seja uma alternativa moderna e preferida atualmente. No entanto, muitas bibliotecas e frameworks Android ainda utilizam Java.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJhgA--PFCm9t3I8byNUB6g_BDIrLkCMwf9A&s" class="card-img-top" alt="Aplicação 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sistemas Bancários e Financeiros</h5>
+                        <p class="card-text">Java é amplamente usado para desenvolver sistemas bancários, aplicações de investimentos, plataformas de pagamento e aplicativos financeiros. Sua confiabilidade, segurança e alta performance são essenciais em transações financeiras.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW9yOuRWAmQMr2UiyYxXu_nlbDrpW8gwUcrg&s" class="card-img-top" alt="Aplicação 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Desenvolvimento de Jogos</h5>
+                        <p class="card-text">Java também é usado no desenvolvimento de jogos, embora não seja tão popular quanto linguagens como C++ ou Unity (C#), ele tem algumas bibliotecas e frameworks especializados para jogos 2D e 3D.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMAO9f9obOCUqXRDg1J82cpGnQ4mVCJcQKkQ&s" class="card-img-top" alt="Aplicação 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Big Data e Processamento de Dados</h5>
+                        <p class="card-text">Java é uma das principais linguagens utilizadas em processamento de grandes volumes de dados, particularmente em conjunto com frameworks como Apache Hadoop, Apache Spark e Apache Kafka.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    >
+
+    <!-- Seção de Sintaxe -->
+    <div class="container mt-5" id="sintaxe">
+        <h1>Sintaxe Básica de Java</h1>
+        <p>Aprenda os fundamentos da linguagem Java com exemplos de código simples e práticos.</p>
+
+        <!-- Estrutura de um Programa -->
+        <h3>1. Estrutura de um Programa</h3>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>public class Main {
+    public static void main(String[] args) {
+        System.out.println("Olá, Mundo!"); // Exibe uma mensagem no console
+    }
+}</code>
+        </pre>
+        <p><strong>Resultado:</strong> Quando você executa esse programa, o Java irá imprimir "Olá, Mundo!" na saída do console. Esse é o exemplo clássico de um programa de início, utilizado para testar se o ambiente de desenvolvimento está configurado corretamente.</p>
+
+        <!-- Declaração de Variáveis -->
+        <h3>2. Declaração de Variáveis</h3>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>int idade = 25;             // Inteiro
+double altura = 1.75;       // Número decimal
+char inicial = 'J';         // Um único caractere
+String nome = "João";       // Texto (String)
+boolean ativo = true;       // Verdadeiro ou falso</code>
+        </pre>
+        <p><strong>Resultado:</strong> Nesse exemplo, declaramos diferentes tipos de variáveis em Java: <code>int</code> para números inteiros, <code>double</code> para números decimais, <code>char</code> para um único caractere, <code>String</code> para texto e <code>boolean</code> para valores lógicos (verdadeiro ou falso). Essas variáveis podem ser usadas para armazenar dados em seu programa.</p>
+
+        <!-- Controle de Fluxo -->
+        <h3>3. Controle de Fluxo</h3>
+        
+        <p><strong>Condicional (if/else):</strong></p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>int idade = 18;
+if (idade >= 18) {
+    System.out.println("Você é maior de idade.");
+} else {
+    System.out.println("Você é menor de idade.");
+}</code>
+        </pre>
+        <p><strong>Resultado:</strong> O programa verifica se a variável <code>idade</code> é maior ou igual a 18. Se for, imprime "Você é maior de idade."; caso contrário, imprime "Você é menor de idade.".</p>
+
+        <p><strong>Loop (for):</strong></p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>for (int i = 0; i < 5; i++) {
+    System.out.println("Contagem: " + i);
+}</code>
+        </pre>
+        <p><strong>Resultado:</strong> O loop <code>for</code> vai começar com <code>i = 0</code> e vai incrementar <code>i</code> até atingir 5 (excluindo 5). A cada iteração, o programa imprime "Contagem: " seguido do valor de <code>i</code>.</p>
+
+        <p><strong>Loop (while):</strong></p>
+        <pre class="bg-dark text-white p-3 rounded">
+<code>int contador = 0;
+while (contador < 5) {
+    System.out.println("Contador: " + contador);
+    contador++;
+}</code>
+        </pre>
+        <p><strong>Resultado:</strong> O loop <code>while</code> funciona de maneira semelhante ao <code>for</code>, mas a verificação da condição ocorre antes de cada iteração. O programa vai imprimir "Contador: 0", "Contador: 1", até "Contador: 4" e, depois disso, o loop será interrompido quando <code>contador</code> atingir 5.</p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
